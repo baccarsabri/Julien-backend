@@ -98,8 +98,8 @@ app.post(
         // handleSubscriptionUpdated(subscription);
         break;
       default:
-        // Unexpected event type
-        console.log(`Unhandled event type ${event.type}.`);
+      // Unexpected event type
+      //console.log(`Unhandled event type ${event.type}.`);
     }
     // Return a 200 response to acknowledge receipt of the event
     response.send();
