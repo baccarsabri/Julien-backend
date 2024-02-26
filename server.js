@@ -62,7 +62,7 @@ app.post(
     // If you are testing with the CLI, find the secret by running 'stripe listen'
     // If you are using an endpoint defined with the API or dashboard, look in your webhook settings
     // at https://dashboard.stripe.com/webhooks
-    const endpointSecret = 'we_1OoCuvHNsu4my1Ppje6hr2ii';
+    const endpointSecret = 'whsec_Jqxuplf35ab0W4t56tuVw2Oj4t8tpPi7';
     // Only verify the event if you have an endpoint secret defined.
     // Otherwise use the basic event deserialized with JSON.parse
     if (endpointSecret) {
