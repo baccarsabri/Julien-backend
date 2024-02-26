@@ -70,7 +70,7 @@ app.post(
       const signature = request.headers['stripe-signature'];
       try {
         event = stripe.webhooks.constructEvent(
-          request.rawBody,
+          JSON.stringify(request.rawBody),
           signature,
           endpointSecret
         );
