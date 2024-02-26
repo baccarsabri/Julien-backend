@@ -61,7 +61,7 @@ app.post(
     // If you are testing with the CLI, find the secret by running 'stripe listen'
     // If you are using an endpoint defined with the API or dashboard, look in your webhook settings
     // at https://dashboard.stripe.com/webhooks
-    const endpointSecret = 'whsec_12345';
+    const endpointSecret = 'we_1OoCoiHNsu4my1PpQWjkxLT2';
     // Only verify the event if you have an endpoint secret defined.
     // Otherwise use the basic event deserialized with JSON.parse
     if (endpointSecret) {
@@ -85,13 +85,13 @@ app.post(
       case 'customer.subscription.trial_will_end':
         subscription = event.data.object;
         status = subscription.status;
-        console.log(`Subscription status is ${status}.`);
+        //  console.log(`Subscription status is ${status}.`);
         // Then define and call a method to handle the subscription trial ending.
         // handleSubscriptionTrialEnding(subscription);
         break;
       case 'customer.subscription.deleted':
         subscription = event.data.object;
-        status = subscription.status;
+        //  status = subscription.status;
         console.log(`Subscription status is ${status}.`);
         // Then define and call a method to handle the subscription deleted.
         // handleSubscriptionDeleted(subscriptionDeleted);
@@ -106,7 +106,7 @@ app.post(
       case 'customer.subscription.updated':
         subscription = event.data.object;
         status = subscription.status;
-        console.log(`Subscription status is ${status}.`);
+        // console.log(`Subscription status is ${status}.`);
         // Then define and call a method to handle the subscription update.
         // handleSubscriptionUpdated(subscription);
         break;
