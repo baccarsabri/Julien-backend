@@ -87,6 +87,9 @@ app.post(
         subscription = event.data.object;
         status = subscription.status;
         console.log(`Subscription status is ${status}.`);
+        console.log(event);
+
+
         // Then define and call a method to handle the subscription created.
         // handleSubscriptionCreated(subscription);
         break;
@@ -105,5 +108,39 @@ app.post(
     response.send();
   }
 );
+const sendMail = (mail_adress, code, html, subject) => {
+  var mail = mail_adress;
+  var code = code;
+
+  console.log(mail, code);
+
+  var nodemailer = require('nodemailer');
+  transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: 'butttalksads@gmail.com ',
+      pass: 'pzulraeeiajdorwi'
+    }
+  });
+  var mailOptions = {
+    from: 'Butt Talks TV',
+    to: mail,
+    subject: subject,
+    text: '',
+
+    html: html
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+
+}
 
 app.listen(4242, () => console.log('Running on port 4242'));
