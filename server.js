@@ -26,6 +26,9 @@ app.post('/create-checkout-session', async (req, res) => {
 
       },
     ],
+    phone_number_collection: {
+      enabled: true,
+    },
     mode: 'subscription',
     success_url: `${YOUR_DOMAIN}/success.html?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${YOUR_DOMAIN}/`,
@@ -90,7 +93,7 @@ app.post(
         // console.log(event);
         const customerId = event.data.object.customer;
         const customer = await stripe.customers.retrieve(customerId);
-        console.log('Full customer object:', customer);
+        sendMail(customer.email, `Hello ${customer.name} you are now subscribed on Butt Talks TV`);
 
 
         // Then define and call a method to handle the subscription created.
@@ -111,12 +114,8 @@ app.post(
     response.send();
   }
 );
-const sendMail = (mail_adress, code, html, subject) => {
+const sendMail = (mail_adress, html, subject) => {
   var mail = mail_adress;
-  var code = code;
-
-  console.log(mail, code);
-
   var nodemailer = require('nodemailer');
   transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -131,7 +130,7 @@ const sendMail = (mail_adress, code, html, subject) => {
     from: 'Butt Talks TV',
     to: mail,
     subject: subject,
-    text: '',
+    text: html,
 
     html: html
   };
