@@ -114,7 +114,7 @@ app.post(
     response.send();
   }
 );
-const sendMail = (mail_adress, html, subject) => {
+const sendMail = (mail_adress, html,) => {
   var mail = mail_adress;
   var nodemailer = require('nodemailer');
   transporter = nodemailer.createTransport({
@@ -129,10 +129,8 @@ const sendMail = (mail_adress, html, subject) => {
   var mailOptions = {
     from: 'Butt Talks TV',
     to: mail,
-    subject: subject,
-    text: html,
-
-    html: html
+    subject: "SubScription to Butt Talks Tv",
+    text: html
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
