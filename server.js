@@ -55,7 +55,7 @@ app.post('/create-portal-session', async (req, res) => {
 app.post(
   '/webhook',
   express.raw({ type: 'application/json' }),
-  (request, response) => {
+  async (request, response) => {
     console.log("webhook::::::::")
     let event = request.body;
     // Replace this endpoint secret with your endpoint's unique secret
@@ -87,7 +87,10 @@ app.post(
         subscription = event.data.object;
         status = subscription.status;
         console.log(`Subscription status is ${status}.`);
-        console.log(event);
+        // console.log(event);
+        const customerId = event.data.object.customer;
+        const customer = await stripe.customers.retrieve(customerId);
+        console.log('Full customer object:', customer);
 
 
         // Then define and call a method to handle the subscription created.
