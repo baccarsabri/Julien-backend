@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 
-const YOUR_DOMAIN = 'http://localhost:4242';
+const YOUR_DOMAIN = 'http://localhost:3000';
 
 app.post('/create-checkout-session', async (req, res) => {
   const prices = await stripe.prices.list({
@@ -30,7 +30,8 @@ app.post('/create-checkout-session', async (req, res) => {
       enabled: true,
     },
     mode: 'subscription',
-    success_url: `${YOUR_DOMAIN}/success.html?session_id={CHECKOUT_SESSION_ID}`,
+    //   ${YOUR_DOMAIN}/success.html?session_id={CHECKOUT_SESSION_ID}
+    success_url: `${YOUR_DOMAIN}`,
     cancel_url: `${YOUR_DOMAIN}/`,
   });
 
