@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 
-const YOUR_DOMAIN = 'http://localhost:3000';
+const YOUR_DOMAIN = 'https://julien-frontend.onrender.com';
 
 app.post('/create-checkout-session', async (req, res) => {
   const prices = await stripe.prices.list({
