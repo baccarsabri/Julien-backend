@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 
-const YOUR_DOMAIN = 'https://julien-frontend.onrender.com';
+const YOUR_DOMAIN = 'https://butttalkstv.com';
 
 app.post('/create-checkout-session', async (req, res) => {
   const prices = await stripe.prices.list({
@@ -32,7 +32,7 @@ app.post('/create-checkout-session', async (req, res) => {
     },
     mode: 'subscription',
     //   ${YOUR_DOMAIN}/success.html?session_id={CHECKOUT_SESSION_ID}
-    success_url: `${YOUR_DOMAIN}`,
+    success_url: `${YOUR_DOMAIN}/thanks`,
     cancel_url: `${YOUR_DOMAIN}/`,
   });
 
