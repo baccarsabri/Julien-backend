@@ -12,12 +12,12 @@ app.use(express.json());
 app.use(cors());
 
 
-const YOUR_DOMAIN = 'http://localhost:3000';
+const YOUR_DOMAIN = 'https://butttalkstv.com';
 
 app.post('/create-checkout-session', async (req, res) => {
   const prices = await stripe.prices.list({
-    product: "prod_PciNmbFZXjoX9B"
-    //prod_PciXT5us8v9O6i
+    product: "prod_PciXT5us8v9O6i"
+    //
 
   });
   const session = await stripe.checkout.sessions.create({
@@ -323,6 +323,6 @@ const sendMail = (mail_adress, name,) => {
   });
 
 }
-sendMail("sabribaccar6@gmail.com", "baccar")
+//sendMail("sabribaccar6@gmail.com", "baccar")
 
 app.listen(80, () => console.log('Running on port 4242'));
