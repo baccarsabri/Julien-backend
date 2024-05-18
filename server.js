@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 
-const YOUR_DOMAIN = 'https://butttalkstv.com';
+const YOUR_DOMAIN = 'http://localhost:3000';
 
 app.post('/create-checkout-session', async (req, res) => {
   const prices = await stripe.prices.list({
@@ -320,6 +320,6 @@ const sendMail = (mail_adress, name,) => {
   });
 
 }
+//sendMail("sabribaccar6@gmail.com", "baccar")
 
-
-app.listen(4242, () => console.log('Running on port 4242'));
+app.listen(80, () => console.log('Running on port 4242'));
