@@ -15,7 +15,9 @@ const YOUR_DOMAIN = 'http://localhost:3000';
 
 app.post('/create-checkout-session', async (req, res) => {
   const prices = await stripe.prices.list({
-    product: "prod_PciXT5us8v9O6i"
+    product: "prod_PciNmbFZXjoX9B"
+    //prod_PciXT5us8v9O6i
+
   });
   const session = await stripe.checkout.sessions.create({
     billing_address_collection: 'auto',
