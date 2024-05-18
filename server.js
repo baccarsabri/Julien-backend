@@ -18,6 +18,7 @@ app.post('/create-checkout-session', async (req, res) => {
   const prices = await stripe.prices.list({
     product: "prod_PciXT5us8v9O6i"
     //
+    //prod_PciNmbFZXjoX9B
 
   });
   const session = await stripe.checkout.sessions.create({
