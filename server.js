@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require("cors");
+var nodemailer = require('nodemailer');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -118,19 +119,19 @@ app.post(
     response.send();
   }
 );
-
+transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'butttalksads@gmail.com ',
+    pass: process.env.PWD
+  }
+});
 const sendMail = (mail_adress, name,) => {
   var mail = mail_adress;
-  var nodemailer = require('nodemailer');
-  transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      user: 'butttalksads@gmail.com ',
-      pass: process.env.PWD
-    }
-  });
+
+
   var mailOptions = {
     from: 'Butt Talks TV',
     to: mail,
