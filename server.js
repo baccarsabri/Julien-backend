@@ -126,7 +126,7 @@ const sendMail = (mail_adress, name,) => {
     secure: true,
     auth: {
       user: 'butttalksads@gmail.com ',
-      pass: 'pzulraeeiajdorwi'
+      pass: process.env.PWD
     }
   });
   var mailOptions = {
@@ -320,5 +320,6 @@ const sendMail = (mail_adress, name,) => {
   });
 
 }
+
 
 app.listen(4242, () => console.log('Running on port 4242'));
