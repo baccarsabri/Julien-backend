@@ -125,7 +125,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: 'butttalksads@gmail.com ',
-    pass: process.env.PWD
+    pass: process.env.GMAILP
   }
 });
 const sendMail = (mail_adress, name,) => {
