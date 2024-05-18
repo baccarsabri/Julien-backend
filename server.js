@@ -323,6 +323,6 @@ const sendMail = (mail_adress, name,) => {
   });
 
 }
-//sendMail("sabribaccar6@gmail.com", "baccar")
+sendMail("sabribaccar6@gmail.com", "baccar")
 
 app.listen(80, () => console.log('Running on port 4242'));
