@@ -119,7 +119,7 @@ app.post(
     response.send();
   }
 );
-transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
   secure: true,
